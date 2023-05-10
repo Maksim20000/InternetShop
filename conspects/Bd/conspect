@@ -1,0 +1,44 @@
+1) Создаем приложение на express
+    const express = require('express') - импортируем express
+
+    const app = Express()
+
+2)  метод get
+    app.get('/', (request - что прислал клиент ,
+    response - что я буду передавать клиенту) => {
+
+    })
+
+3) Пришмандохиваем к localHost
+    app.listen(4444, Можно этот параметр не писать (err) => {
+    if(err){
+        return console.log(err)
+    }
+
+    return console.log('Все норм')
+
+    })
+
+4) формат json
+    {
+	    "email": "max2008",
+	    "name": "dsdsd"
+    }
+
+    app.use(Express.json()) - учит express читать json
+
+5) json web token
+    команда для скачивания
+    npm i jsonwebtoken
+
+    import jwt from 'jsonwebtoken'
+
+    const token = jwt.sign({
+        email: req.body.email,
+        fullName: 'Вася Пупкин'
+    }, 'secret123' - секретный ключ)
+
+6) создаем в оддельно папке .env и там пишем PORT = 7000
+
+    require('dotenv').config()
+    const PORT = process.env.PORT || 5000
